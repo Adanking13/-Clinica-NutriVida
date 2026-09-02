@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f5f7ff;
+    background: #080b11;
+}
+
+header {
+    padding: 20px 40px;
+    background: #11151d;
+    border-bottom: 1px solid #272d38;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4385ff, #6845ef);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 4px 0 0;
+    color: #8e96a6;
+}
+
+nav {
+    margin-left: auto;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #cbd1dc;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #4d8cff;
+}
+
+main {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px 20px;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #4d8cff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: clamp(40px, 7vw, 70px);
+    max-width: 700px;
+}
+
+.hero > p:not(.eyebrow) {
+    max-width: 620px;
+    color: #9da5b4;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 13px 30px;
+    border: 0;
+    border-radius: 10px;
+    background: #4385ff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5b96ff;
+}
+
+.card {
+    margin: 30px 0;
+    padding: 35px;
+    background: #11151d;
+    border: 1px solid #272d38;
+    border-radius: 18px;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p:not(.eyebrow) {
+    color: #9da5b4;
+    line-height: 1.6;
+}
+
+footer {
+    margin-top: 60px;
+    padding: 25px;
+    text-align: center;
+    color: #737b8a;
+    border-top: 1px solid #272d38;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px;
+    }
+
+    nav {
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        min-height: 65vh;
+        padding: 50px 5px;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+}
