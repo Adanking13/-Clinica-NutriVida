@@ -162,3 +162,27 @@ footer {
         padding: 25px;
     }
 }
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 60px;
+}
+@media (max-width: 700px) {
+    .servicios {
+        grid-template-columns: 1fr;
+    }
+}
+.servicios .card {
+    padding: 30px;
+}
+
+.servicios .card h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.servicios .card p {
+    line-height: 1.6;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Reserva un servicio en Clínica NutriVida">
+
+    <title>Reservar | NutriVida</title>
+
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">NV</div>
+
+        <div>
+            <h1>NutriVida</h1>
+            <p>Clínica de nutrición y dietética</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="index.html#clinica">La clínica</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p class="eyebrow">RESERVA</p>
+
+            <h2>Reserva tu servicio</h2>
+
+            <p>
+                Completa tus datos para solicitar una reserva
+                en Clínica NutriVida.
+            </p>
+        </section>
+
+        <section class="card">
+
+            <form id="form-reserva">
+
+                <label for="nombre">Nombre completo</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ingresa tu nombre"
+                    required
+                >
+
+                <label for="correo">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@correo.com"
+                    required
+                >
+
+                <label for="telefono">Teléfono</label>
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+56 9 1234 5678"
+                    required
+                >
+
+                <label for="servicio">Servicio</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="">Selecciona un servicio</option>
+                    <option value="EV002">Bioimpedanciometría</option>
+                    <option value="EV003">Encuesta de hábitos alimentarios</option>
+                    <option value="EV004">Análisis de exámenes de laboratorio</option>
+                    <option value="TG001">Taller de alimentación saludable</option>
+                    <option value="TG002">Taller de cocina nutritiva</option>
+                    <option value="TG003">Taller de nutrición para deportistas</option>
+                </select>
+
+                <label for="fecha">Fecha</label>
+                <input
+                    type="date"
+                    id="fecha"
+                    name="fecha"
+                    required
+                >
+
+                <label for="hora">Hora</label>
+                <input
+                    type="time"
+                    id="hora"
+                    name="hora"
+                    required
+                >
+
+                <button type="submit">Confirmar reserva</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>NutriVida · Proyecto DSY1104</p>
+    </footer>
+        <script src="assets/js/reserva.js"></script>
+
+</body>
+</html>
