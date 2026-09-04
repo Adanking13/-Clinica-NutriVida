@@ -3,76 +3,219 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NutriVida - Clínica de nutrición y dietética">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="NutriVida, clínica de nutrición y dietética en Temuco.">
+
     <title>NutriVida | Inicio</title>
 
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet"
+        href="assets/css/estilos.css">
 </head>
 
 <body>
 
+    <!-- CABECERA -->
+
     <header>
-        <div class="logo">
-            NV
+
+        <div class="marca">
+
+            <div class="logo">
+                NV
+            </div>
+
+            <div>
+                <h1>NutriVida</h1>
+                <p>Clínica de nutrición y dietética</p>
+            </div>
+
         </div>
 
-        <div>
-            <h1>NutriVida</h1>
-            <p>Clínica de nutrición y dietética</p>
-        </div>
 
-        <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="#clinica">La clínica</a>
-    <a href="#contacto">Contacto</a>
-</nav>
+        <nav aria-label="Navegación principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                La clínica
+            </a>
+
+            <a href="nutricionistas.html">
+                Nutricionistas
+            </a>
+
+            <a href="servicios.html">
+                Servicios
+            </a>
+
+            <a href="reserva.html">
+                Agendar cita
+            </a>
+
+            <a href="recursos.html">
+                Recursos
+            </a>
+
+            <a href="login.html">
+                Iniciar sesión
+            </a>
+
+        </nav>
+
     </header>
 
 
+    <!-- CONTENIDO PRINCIPAL -->
+
     <main>
 
-        <section id="inicio" class="hero">
+        <!-- PRESENTACIÓN -->
 
-            <p class="eyebrow">CLÍNICA NUTRICIONAL</p>
+        <section class="hero"
+            aria-labelledby="titulo-principal">
 
-            <h2>Bienvenido a NutriVida</h2>
-
-            <p>
-                Asesoría nutricional personalizada para
-                acompañarte en tus objetivos de salud y bienestar.
+            <p class="eyebrow">
+                CLÍNICA NUTRICIONAL
             </p>
 
-            <button id="btn-iniciar" type="button">
-                Iniciar
-            </button>
+            <h2 id="titulo-principal">
+                Bienvenido a NutriVida
+            </h2>
+
+            <p>
+                Atención nutricional personalizada para
+                acompañarte en tus objetivos de salud,
+                alimentación y bienestar.
+            </p>
+
+            <div class="acciones">
+
+                <a href="reserva.html"
+                    class="btn">
+                    Agendar cita
+                </a>
+
+                <a href="nosotros.html"
+                    class="btn btn-secundario">
+                    Conocer la clínica
+                </a>
+
+            </div>
 
         </section>
 
 
-        <section id="clinica" class="card">
+        <!-- INFORMACIÓN -->
 
-            <p class="eyebrow">NUTRIVIDA</p>
+        <section class="grid">
 
-            <h2>Una nueva forma de cuidar tu salud</h2>
+            <article class="card">
 
-            <p>
-                Clínica de nutrición fundada en 2016 en Temuco,
-                Región de La Araucanía.
-            </p>
+                <p class="eyebrow">
+                    DESDE 2016
+                </p>
+
+                <h2>
+                    NutriVida
+                </h2>
+
+                <p>
+                    Clínica de nutrición y dietética
+                    fundada en Temuco, Región de
+                    La Araucanía.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <p class="eyebrow">
+                    EQUIPO
+                </p>
+
+                <h2>
+                    4 nutricionistas
+                </h2>
+
+                <p>
+                    Profesionales orientados a
+                    diferentes necesidades y objetivos
+                    nutricionales.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <p class="eyebrow">
+                    ATENCIÓN
+                </p>
+
+                <h2>
+                    Personalizada
+                </h2>
+
+                <p>
+                    Atención enfocada en las
+                    necesidades de cada paciente.
+                </p>
+
+            </article>
 
         </section>
 
 
-        <section id="contacto" class="card">
+        <!-- CLÍNICA -->
 
-            <p class="eyebrow">CONTACTO</p>
+        <section id="clinica"
+            class="card">
 
-            <h2>Estamos en Temuco</h2>
+            <p class="eyebrow">
+                SOBRE NOSOTROS
+            </p>
+
+            <h2>
+                Una nueva forma de cuidar tu salud
+            </h2>
 
             <p>
-                Atención nutricional personalizada.
+                NutriVida busca facilitar el acceso a
+                información, profesionales y futuras
+                solicitudes de atención nutricional.
+            </p>
+
+            <a href="nosotros.html"
+                class="text-link">
+                Conocer más →
+            </a>
+
+        </section>
+
+
+        <!-- CONTACTO -->
+
+        <section id="contacto"
+            class="card">
+
+            <p class="eyebrow">
+                CONTACTO
+            </p>
+
+            <h2>
+                Temuco · La Araucanía
+            </h2>
+
+            <p>
+                Encuentra información sobre nuestra
+                clínica y servicios nutricionales.
             </p>
 
         </section>
@@ -80,8 +223,14 @@
     </main>
 
 
+    <!-- PIE -->
+
     <footer>
-        <p>NutriVida · Proyecto DSY1104</p>
+
+        <p>
+            NutriVida · Proyecto DSY1104
+        </p>
+
     </footer>
 
 
