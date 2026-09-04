@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Inicio de sesión en Clínica NutriVida">
+
+    <title>Iniciar sesión | NutriVida</title>
+
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">NV</div>
+
+        <div>
+            <h1>NutriVida</h1>
+            <p>Clínica de nutrición y dietética</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="productos.html">Productos</a>
+            <a href="registro.html">Registro</a>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p class="eyebrow">INICIO DE SESIÓN</p>
+
+            <h2>Bienvenido nuevamente</h2>
+
+            <p>
+                Ingresa tus datos para acceder a tu cuenta de NutriVida.
+            </p>
+        </section>
+
+        <section class="card">
+
+            <form id="form-login">
+
+                <p id="mensaje-login"></p>
+
+                <label for="correo">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@correo.com"
+                    required
+                >
+
+                <label for="password">Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                >
+
+                <button type="submit">Iniciar sesión</button>
+
+            </form>
+
+            <p>
+                ¿No tienes una cuenta?
+                <a href="registro.html">Regístrate aquí</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>NutriVida · Proyecto DSY1104</p>
+    </footer>
+
+    <script src="assets/js/login.js"></script>
+
+</body>
+</html>

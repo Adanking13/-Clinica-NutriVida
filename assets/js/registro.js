@@ -1,15 +1,5 @@
-const parametros = new URLSearchParams(window.location.search);
-const servicioSeleccionado = parametros.get("servicio");
-
-console.log("Servicio seleccionado:", servicioSeleccionado);
-
-const selectServicio = document.querySelector("#servicio");
-
-if (servicioSeleccionado) {
-    selectServicio.value = servicioSeleccionado;
-}
-const formulario = document.querySelector("#form-reserva");
-const mensaje = document.querySelector("#mensaje-reserva");
+const formulario = document.querySelector("#form-registro");
+const mensaje = document.querySelector("#mensaje-registro");
 
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -17,9 +7,9 @@ formulario.addEventListener("submit", function (event) {
     const nombre = document.querySelector("#nombre").value.trim();
     const correo = document.querySelector("#correo").value.trim();
     const telefono = document.querySelector("#telefono").value.trim();
-    const servicio = document.querySelector("#servicio").value;
-    const fecha = document.querySelector("#fecha").value;
-    const hora = document.querySelector("#hora").value;
+    const password = document.querySelector("#password").value;
+    const confirmarPassword = document.querySelector("#password-confirmar").value;
+
     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const formatoNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{3,}$/;
     const formatoTelefono = /^\+56\s?9\s?\d{4}\s?\d{4}$/;
@@ -32,7 +22,7 @@ formulario.addEventListener("submit", function (event) {
     if (!formatoNombre.test(nombre)) {
         mensaje.textContent = "Por favor, ingresa un nombre válido.";
         return;
-}
+    }
 
     if (correo === "") {
         mensaje.textContent = "Por favor, ingresa tu correo electrónico.";
@@ -42,7 +32,7 @@ formulario.addEventListener("submit", function (event) {
     if (!formatoCorreo.test(correo)) {
         mensaje.textContent = "Por favor, ingresa un correo electrónico válido.";
         return;
-}
+    }
 
     if (telefono === "") {
         mensaje.textContent = "Por favor, ingresa tu teléfono.";
@@ -52,32 +42,17 @@ formulario.addEventListener("submit", function (event) {
     if (!formatoTelefono.test(telefono)) {
         mensaje.textContent = "Por favor, ingresa un teléfono válido.";
         return;
-}
+    }
 
-    if (servicio === "") {
-        mensaje.textContent = "Por favor, selecciona un servicio.";
+    if (password.length < 6) {
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
         return;
     }
 
-    if (fecha === "") {
-        mensaje.textContent = "Por favor, selecciona una fecha.";
+    if (password !== confirmarPassword) {
+        mensaje.textContent = "Las contraseñas no coinciden.";
         return;
     }
 
-    const fechaSeleccionada = new Date(fecha);
-    const hoy = new Date();
-
-    hoy.setHours(0, 0, 0, 0);
-
-    if (fechaSeleccionada < hoy) {
-        mensaje.textContent = "La fecha seleccionada no puede ser anterior a hoy.";
-        return;
-}
-
-    if (hora === "") {
-        mensaje.textContent = "Por favor, selecciona una hora.";
-        return;
-    }
-
-    mensaje.textContent = "¡Reserva realizada correctamente!";
+    mensaje.textContent = "¡Registro realizado correctamente!";
 });

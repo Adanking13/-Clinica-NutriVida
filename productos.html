@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Productos y servicios de Clínica NutriVida">
+
+    <title>Productos | NutriVida</title>
+
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">NV</div>
+
+        <div>
+            <h1>NutriVida</h1>
+            <p>Clínica de nutrición y dietética</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="productos.html">Productos</a>
+            <a href="index.html#clinica">La clínica</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <p class="eyebrow">PRODUCTOS</p>
+
+            <h2>Servicios NutriVida</h2>
+
+            <p>
+                Selecciona los servicios que deseas agregar
+                a tu carrito.
+            </p>
+        </section>
+
+        <section class="productos">
+
+            <article class="card">
+                <p class="eyebrow">EV002</p>
+                <h3>Bioimpedanciometría</h3>
+                <p>Evaluación de composición corporal.</p>
+                <p><strong>Precio:</strong> $12.000</p>
+
+                <button class="btn-agregar"
+                    data-id="EV002"
+                    data-nombre="Bioimpedanciometría"
+                    data-precio="12000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=EV002">Ver detalle</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">EV003</p>
+                <h3>Encuesta de hábitos alimentarios</h3>
+                <p>Análisis de hábitos y patrón alimentario.</p>
+                <p><strong>Precio:</strong> $10.000</p>
+
+                <button class="btn-agregar"
+                    data-id="EV003"
+                    data-nombre="Encuesta de hábitos alimentarios"
+                    data-precio="10000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=EV003">Ver detalle</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">EV004</p>
+                <h3>Análisis de exámenes</h3>
+                <p>Interpretación nutricional de exámenes.</p>
+                <p><strong>Precio:</strong> $15.000</p>
+
+                <button class="btn-agregar"
+                    data-id="EV004"
+                    data-nombre="Análisis de exámenes"
+                    data-precio="15000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=EV004">Ver detalle</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">TG001</p>
+                <h3>Taller de alimentación saludable</h3>
+                <p>Taller sobre alimentación equilibrada.</p>
+                <p><strong>Precio:</strong> $15.000</p>
+
+                <button class="btn-agregar"
+                    data-id="TG001"
+                    data-nombre="Taller de alimentación saludable"
+                    data-precio="15000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=TG001">Ver detalle</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">TG002</p>
+                <h3>Taller de cocina nutritiva</h3>
+                <p>Preparación de recetas saludables.</p>
+                <p><strong>Precio:</strong> $20.000</p>
+
+                <button class="btn-agregar"
+                    data-id="TG002"
+                    data-nombre="Taller de cocina nutritiva"
+                    data-precio="20000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=TG002">Ver detalle</a>
+                </p>
+            </article>
+
+            <article class="card">
+                <p class="eyebrow">TG003</p>
+                <h3>Taller de nutrición para deportistas</h3>
+                <p>Alimentación e hidratación para deportistas.</p>
+                <p><strong>Precio:</strong> $18.000</p>
+
+                <button class="btn-agregar"
+                    data-id="TG003"
+                    data-nombre="Taller de nutrición para deportistas"
+                    data-precio="18000">
+                    Añadir al carrito
+                </button>
+
+                <p>
+                    <a href="detalle-producto.html?id=TG003">Ver detalle</a>
+                </p>
+            </article>
+
+        </section>
+
+        <section class="card carrito">
+            <h2>Carrito</h2>
+
+            <div id="carrito-contenido">
+                <p>El carrito está vacío.</p>
+            </div>
+
+            <p id="total-carrito">
+                <strong>Total:</strong> $0
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>NutriVida · Proyecto DSY1104</p>
+    </footer>
+
+    <script src="assets/js/productos.js"></script>
+
+</body>
+</html>
