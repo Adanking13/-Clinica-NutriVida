@@ -18,6 +18,7 @@ ubicada en Temuco, Región de La Araucanía.
 ## Integrante
 
 Martin Reyes
+Martin Lara
 
 ## Ejecución
 
