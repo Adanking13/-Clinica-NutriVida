@@ -35,7 +35,6 @@
 
         </div>
 
-
         <nav aria-label="Navegación principal">
 
             <a href="index.html">
@@ -54,12 +53,24 @@
                 Servicios
             </a>
 
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="blogs.html">
+                Blogs
+            </a>
+
             <a href="reserva.html">
                 Agendar cita
             </a>
 
             <a href="recursos.html">
                 Recursos
+            </a>
+
+            <a href="registro.html">
+                Registrarse
             </a>
 
             <a href="login.html">
@@ -93,7 +104,7 @@
 
         <section class="card">
 
-            <form id="form-reserva">
+            <form id="form-reserva" novalidate>
 
                 <p id="mensaje-reserva"></p>
 
@@ -174,7 +185,7 @@
 
 
                 <label for="servicio">
-                    Tipo de atención
+                    Servicio
                 </label>
 
                 <select
@@ -187,20 +198,28 @@
                         Selecciona una opción
                     </option>
 
-                    <option>
-                        Pérdida de peso
+                    <option value="EV002">
+                        Bioimpedanciometría
                     </option>
 
-                    <option>
-                        Salud metabólica
+                    <option value="EV003">
+                        Encuesta de hábitos alimentarios
                     </option>
 
-                    <option>
-                        Nutrición deportiva
+                    <option value="EV004">
+                        Análisis de exámenes de laboratorio
                     </option>
 
-                    <option>
-                        Alimentación vegetariana o vegana
+                    <option value="TG001">
+                        Taller de alimentación saludable
+                    </option>
+
+                    <option value="TG002">
+                        Taller de cocina nutritiva
+                    </option>
+
+                    <option value="TG003">
+                        Taller de nutrición para deportistas
                     </option>
 
                 </select>
