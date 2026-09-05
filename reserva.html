@@ -1,90 +1,248 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Reserva un servicio en Clínica NutriVida">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Reservar | NutriVida</title>
+    <meta name="description"
+        content="Agenda una cita en NutriVida.">
 
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <title>NutriVida | Agendar cita</title>
+
+    <link rel="stylesheet"
+        href="assets/css/estilos.css">
+
 </head>
 
 <body>
 
     <header>
-        <div class="logo">NV</div>
 
-        <div>
-            <h1>NutriVida</h1>
-            <p>Clínica de nutrición y dietética</p>
+        <div class="marca">
+
+            <div class="logo">
+                NV
+            </div>
+
+            <div>
+                <h1>NutriVida</h1>
+                <p>Clínica de nutrición y dietética</p>
+            </div>
+
         </div>
 
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="index.html#clinica">La clínica</a>
-            <a href="index.html#contacto">Contacto</a>
+        <nav aria-label="Navegación principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                La clínica
+            </a>
+
+            <a href="nutricionistas.html">
+                Nutricionistas
+            </a>
+
+            <a href="servicios.html">
+                Servicios
+            </a>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="blogs.html">
+                Blogs
+            </a>
+
+            <a href="reserva.html">
+                Agendar cita
+            </a>
+
+            <a href="recursos.html">
+                Recursos
+            </a>
+
+            <a href="registro.html">
+                Registrarse
+            </a>
+
+            <a href="login.html">
+                Iniciar sesión
+            </a>
+
         </nav>
+
     </header>
+
 
     <main>
 
         <section class="hero">
-            <p class="eyebrow">RESERVA</p>
 
-            <h2>Reserva tu servicio</h2>
+            <p class="eyebrow">
+                AGENDAMIENTO
+            </p>
+
+            <h2>
+                Solicita tu cita
+            </h2>
 
             <p>
-                Completa tus datos para solicitar una reserva
-                en Clínica NutriVida.
+                Completa tus datos y selecciona el
+                profesional y horario que prefieras.
             </p>
+
         </section>
+
 
         <section class="card">
 
-            <form id="form-reserva">
+            <form id="form-reserva" novalidate>
+
                 <p id="mensaje-reserva"></p>
-                <label for="nombre">Nombre completo</label>
+
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
                 <input
                     type="text"
                     id="nombre"
                     name="nombre"
+                    autocomplete="name"
                     placeholder="Ingresa tu nombre"
                     required
                 >
 
-                <label for="correo">Correo electrónico</label>
+
+                <label for="correo">
+                    Correo electrónico
+                </label>
+
                 <input
                     type="email"
                     id="correo"
                     name="correo"
+                    autocomplete="email"
                     placeholder="ejemplo@correo.com"
                     required
                 >
 
-                <label for="telefono">Teléfono</label>
+
+                <label for="telefono">
+                    Teléfono
+                </label>
+
                 <input
                     type="tel"
                     id="telefono"
                     name="telefono"
+                    autocomplete="tel"
                     placeholder="+56 9 1234 5678"
                     required
                 >
 
-                <label for="servicio">Servicio</label>
-                <select id="servicio" name="servicio" required>
-                    <option value="">Selecciona un servicio</option>
-                    <option value="EV002">Bioimpedanciometría</option>
-                    <option value="EV003">Encuesta de hábitos alimentarios</option>
-                    <option value="EV004">Análisis de exámenes de laboratorio</option>
-                    <option value="TG001">Taller de alimentación saludable</option>
-                    <option value="TG002">Taller de cocina nutritiva</option>
-                    <option value="TG003">Taller de nutrición para deportistas</option>
+
+                <label for="nutricionista">
+                    Nutricionista preferido
+                </label>
+
+                <select
+                    id="nutricionista"
+                    name="nutricionista"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona un profesional
+                    </option>
+
+                    <option value="nutricionista-01">
+                        Nutricionista 01
+                    </option>
+
+                    <option value="nutricionista-02">
+                        Nutricionista 02
+                    </option>
+
+                    <option value="nutricionista-03">
+                        Nutricionista 03
+                    </option>
+
+                    <option value="nutricionista-04">
+                        Nutricionista 04
+                    </option>
+
                 </select>
 
-                <label for="fecha">Fecha</label>
+
+                <label for="servicio">
+                    Servicio
+                </label>
+
+                <select
+                    id="servicio"
+                    name="servicio"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="EV002">
+                        Bioimpedanciometría
+                    </option>
+
+                    <option value="EV003">
+                        Encuesta de hábitos alimentarios
+                    </option>
+
+                    <option value="EV004">
+                        Análisis de exámenes de laboratorio
+                    </option>
+
+                    <option value="TG001">
+                        Taller de alimentación saludable
+                    </option>
+
+                    <option value="TG002">
+                        Taller de cocina nutritiva
+                    </option>
+
+                    <option value="TG003">
+                        Taller de nutrición para deportistas
+                    </option>
+
+                </select>
+
+
+                <label for="motivo">
+                    Motivo de consulta
+                </label>
+
+                <textarea
+                    id="motivo"
+                    name="motivo"
+                    minlength="10"
+                    maxlength="300"
+                    placeholder="Cuéntanos brevemente el motivo de tu consulta"
+                    required
+                ></textarea>
+
+
+                <label for="fecha">
+                    Fecha
+                </label>
+
                 <input
                     type="date"
                     id="fecha"
@@ -92,7 +250,11 @@
                     required
                 >
 
-                <label for="hora">Hora</label>
+
+                <label for="hora">
+                    Hora
+                </label>
+
                 <input
                     type="time"
                     id="hora"
@@ -100,7 +262,10 @@
                     required
                 >
 
-                <button type="submit">Confirmar reserva</button>
+
+                <button type="submit">
+                    Solicitar cita
+                </button>
 
             </form>
 
@@ -108,10 +273,18 @@
 
     </main>
 
+
     <footer>
-        <p>NutriVida · Proyecto DSY1104</p>
+
+        <p>
+            NutriVida · Proyecto DSY1104
+        </p>
+
     </footer>
-        <script src="assets/js/reserva.js"></script>
+
+
+    <script src="assets/js/reserva.js"></script>
 
 </body>
+
 </html>

@@ -1,7 +1,10 @@
-const botonIniciar = document.querySelector("#btn-iniciar");
+const enlaces = document.querySelectorAll("nav a");
 
-botonIniciar.addEventListener("click", function () {
-    document.querySelector("#clinica").scrollIntoView({
-        behavior: "smooth"
-    });
-});
+console.log(
+    "NutriVida cargado correctamente."
+);
+
+console.log(
+    "Enlaces de navegación:",
+    enlaces.length
+);
