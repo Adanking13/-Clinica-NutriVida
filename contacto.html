@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | NutriVida</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <div class="logo">NV</div>
+        <div>
+            <h1>NutriVida</h1>
+            <p>Clínica de nutrición</p>
+        </div>
+    </div>
+
+    <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">La clínica</a>
+        <a href="nutricionistas.html">Nutricionistas</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="productos.html">Productos</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="reserva.html">Agendar cita</a>
+        <a href="recursos.html">Recursos</a>
+        <a href="login.html">Iniciar sesión</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <p class="eyebrow">CONTACTO</p>
+        <h2>Hablemos de tu salud.</h2>
+        <p>
+            Si tienes dudas sobre nuestros servicios, profesionales
+            o quieres recibir más información, escríbenos.
+        </p>
+    </section>
+
+    <section class="grid">
+
+        <article class="card">
+            <h2>Información de contacto</h2>
+
+            <p>
+                <strong>Dirección</strong><br>
+                Av. Nutrición 1234, Santiago
+            </p>
+
+            <p>
+                <strong>Teléfono</strong><br>
+                +56 9 1234 5678
+            </p>
+
+            <p>
+                <strong>Correo</strong><br>
+                contacto@nutrivida.cl
+            </p>
+
+            <p>
+                <strong>Horario</strong><br>
+                Lunes a viernes, 09:00 a 18:00
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>Envíanos un mensaje</h2>
+
+            <form id="form-contacto" novalidate>
+
+                <label for="nombre">Nombre completo</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ingresa tu nombre"
+                    required
+                >
+
+                <label for="correo">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@correo.com"
+                    required
+                >
+
+                <label for="telefono">Teléfono</label>
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+56 9 1234 5678"
+                    required
+                >
+
+                <label for="asunto">Asunto</label>
+                <input
+                    type="text"
+                    id="asunto"
+                    name="asunto"
+                    placeholder="¿En qué podemos ayudarte?"
+                    required
+                >
+
+                <label for="mensaje">Mensaje</label>
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    placeholder="Escribe tu mensaje..."
+                    required
+                ></textarea>
+
+                <div class="acciones">
+                    <button type="submit">Enviar mensaje</button>
+                    <a href="index.html" class="btn btn-secundario">Volver al inicio</a>
+                </div>
+
+                <p id="mensaje-formulario" aria-live="polite"></p>
+
+            </form>
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>NutriVida · Proyecto DSY1104</p>
+</footer>
+
+<script src="assets/js/contacto.js"></script>
+
+</body>
+</html>
