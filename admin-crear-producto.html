@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear producto | Administración NutriVida</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <div class="logo">NV</div>
+        <div>
+            <h1>NutriVida</h1>
+            <p>Administración de productos</p>
+        </div>
+    </div>
+
+    <nav aria-label="Navegación de administración">
+        <a href="admin.html">Inicio</a>
+        <a href="admin-productos.html">Productos</a>
+        <a href="admin-usuarios.html">Usuarios</a>
+        <a href="index.html">Volver al sitio</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <p class="eyebrow">ADMINISTRACIÓN</p>
+        <h2>Crear producto.</h2>
+        <p>
+            Ingresa la información del nuevo producto
+            que quieres agregar a la tienda.
+        </p>
+    </section>
+
+    <section class="card">
+
+        <h2>Datos del producto</h2>
+
+        <form id="form-producto" novalidate>
+
+            <label for="codigo">Código del producto</label>
+            <input
+                type="text"
+                id="codigo"
+                name="codigo"
+                placeholder="Ej: NV001"
+                required
+            >
+
+            <label for="nombre">Nombre del producto</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                maxlength="100"
+                placeholder="Ej: Plan nutricional"
+                required
+            >
+
+            <label for="descripcion">Descripción</label>
+            <textarea
+                id="descripcion"
+                name="descripcion"
+                maxlength="500"
+                placeholder="Describe el producto..."
+            ></textarea>
+
+            <label for="precio">Precio</label>
+            <input
+                type="number"
+                id="precio"
+                name="precio"
+                min="0"
+                step="0.01"
+                placeholder="Ej: 12000"
+                required
+            >
+
+            <label for="stock">Stock</label>
+            <input
+                type="number"
+                id="stock"
+                name="stock"
+                min="0"
+                step="1"
+                placeholder="Ej: 10"
+                required
+            >
+
+            <label for="stock-critico">Stock crítico</label>
+            <input
+                type="number"
+                id="stock-critico"
+                name="stock-critico"
+                min="0"
+                step="1"
+                placeholder="Ej: 3"
+            >
+
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="Evaluación">Evaluación</option>
+                <option value="Taller">Taller</option>
+                <option value="Consulta">Consulta</option>
+            </select>
+
+            <label for="imagen">Imagen</label>
+            <input
+                type="url"
+                id="imagen"
+                name="imagen"
+                placeholder="https://ejemplo.com/imagen.jpg"
+            >
+
+            <div class="acciones">
+                <button type="submit">Guardar producto</button>
+                <a href="admin-productos.html" class="btn btn-secundario">
+                    Cancelar
+                </a>
+            </div>
+
+            <p id="mensaje-producto" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>NutriVida · Panel de administración</p>
+</footer>
+
+<script src="assets/js/admin-producto.js"></script>
+
+</body>
+</html>
