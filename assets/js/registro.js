@@ -1,7 +1,9 @@
 const formulario = document.querySelector("#form-registro");
+
 const mensaje = document.querySelector("#mensaje-registro");
 
 formulario.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
     const nombre = document.querySelector("#nombre").value.trim();
@@ -13,6 +15,9 @@ formulario.addEventListener("submit", function (event) {
     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const formatoNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{3,}$/;
     const formatoTelefono = /^\+56\s?9\s?\d{4}\s?\d{4}$/;
+
+    mensaje.textContent = "";
+    mensaje.style.color = "";
 
     if (nombre === "") {
         mensaje.textContent = "Por favor, ingresa tu nombre completo.";
@@ -44,8 +49,18 @@ formulario.addEventListener("submit", function (event) {
         return;
     }
 
+    if (password === "") {
+        mensaje.textContent = "Por favor, ingresa una contraseña.";
+        return;
+    }
+
     if (password.length < 6) {
         mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return;
+    }
+
+    if (confirmarPassword === "") {
+        mensaje.textContent = "Confirma tu contraseña.";
         return;
     }
 
@@ -55,4 +70,7 @@ formulario.addEventListener("submit", function (event) {
     }
 
     mensaje.textContent = "¡Registro realizado correctamente!";
+    mensaje.style.color = "var(--acento)";
+
+    formulario.reset();
 });
