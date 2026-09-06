@@ -35,4 +35,22 @@ formulario.addEventListener("submit", function (event) {
 
     mensaje.textContent = "¡Inicio de sesión realizado correctamente!";
     mensaje.style.color = "var(--acento)";
+
+    const accesoAdminAnterior = document.querySelector("#acceso-admin");
+
+    if (accesoAdminAnterior) {
+        accesoAdminAnterior.remove();
+    }
+
+    if (correo === "admin@nutrivida.cl") {
+
+        const accesoAdmin = document.createElement("a");
+
+        accesoAdmin.id = "acceso-admin";
+        accesoAdmin.href = "admin.html";
+        accesoAdmin.className = "btn";
+        accesoAdmin.textContent = "Ir a administración";
+
+        formulario.appendChild(accesoAdmin);
+    }
 });
