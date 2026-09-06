@@ -15,10 +15,11 @@ Proyecto incremental de la asignatura Desarrollo FullStack II.
 NutriVida es una clínica de nutrición y dietética
 ubicada en Temuco, Región de La Araucanía.
 
-## Integrante
+## Integrantes
 
 Martin Reyes
 Martin Lara
+Diego Adan
 
 ## Ejecución
 
