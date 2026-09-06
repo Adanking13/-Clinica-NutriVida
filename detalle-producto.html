@@ -14,37 +14,71 @@
 <body>
 
     <header>
-        <div class="logo">NV</div>
 
-        <div>
-            <h1>NutriVida</h1>
-            <p>Clínica de nutrición y dietética</p>
+        <div class="marca">
+
+            <div class="logo">
+                NV
+            </div>
+
+            <div>
+                <h1>NutriVida</h1>
+                <p>Clínica de nutrición y dietética</p>
+            </div>
+
         </div>
 
-        <nav>
+        <nav aria-label="Navegación principal">
+
             <a href="index.html">Inicio</a>
+
+            <a href="nosotros.html">La clínica</a>
+
+            <a href="nutricionistas.html">Nutricionistas</a>
+
             <a href="servicios.html">Servicios</a>
+
             <a href="productos.html">Productos</a>
-            <a href="index.html#clinica">La clínica</a>
-            <a href="index.html#contacto">Contacto</a>
+
+            <a href="blogs.html">Blogs</a>
+
+            <a href="reserva.html">Agendar cita</a>
+
+            <a href="recursos.html">Recursos</a>
+
+            <a href="login.html">Iniciar sesión</a>
+
         </nav>
+
     </header>
 
     <main>
 
         <section class="hero">
+
             <p class="eyebrow">DETALLE DEL SERVICIO</p>
-            <h2 id="nombre-producto">Servicio NutriVida</h2>
+
+            <h2 id="nombre-producto">
+                Servicio NutriVida
+            </h2>
+
             <p id="descripcion-producto">
                 Información detallada del servicio seleccionado.
             </p>
+
         </section>
 
         <section class="card">
 
-            <p><strong>Código:</strong> <span id="codigo-producto"></span></p>
+            <p>
+                <strong>Código:</strong>
+                <span id="codigo-producto"></span>
+            </p>
 
-            <p><strong>Precio:</strong> $<span id="precio-producto"></span></p>
+            <p>
+                <strong>Precio:</strong>
+                $<span id="precio-producto"></span>
+            </p>
 
             <button id="btn-agregar-detalle" type="button">
                 Añadir al carrito
@@ -53,7 +87,9 @@
             <p id="mensaje-producto"></p>
 
             <p>
-                <a href="productos.html">Volver a productos</a>
+                <a href="productos.html">
+                    Volver a productos
+                </a>
             </p>
 
         </section>
@@ -61,7 +97,11 @@
     </main>
 
     <footer>
-        <p>NutriVida · Proyecto DSY1104</p>
+
+        <p>
+            NutriVida · Proyecto DSY1104
+        </p>
+
     </footer>
 
     <script src="assets/js/detalle-producto.js"></script>
