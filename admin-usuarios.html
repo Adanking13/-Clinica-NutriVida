@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios | Administración NutriVida</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+
+<body>
+
+<header>
+    <div class="marca">
+        <div class="logo">NV</div>
+        <div>
+            <h1>NutriVida</h1>
+            <p>Administración de usuarios</p>
+        </div>
+    </div>
+
+    <nav aria-label="Navegación de administración">
+        <a href="admin.html">Inicio</a>
+        <a href="admin-productos.html">Productos</a>
+        <a href="admin-usuarios.html">Usuarios</a>
+        <a href="index.html">Volver al sitio</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <p class="eyebrow">ADMINISTRACIÓN</p>
+        <h2>Usuarios.</h2>
+        <p>
+            Revisa los usuarios registrados y administra
+            la información de las cuentas de NutriVida.
+        </p>
+
+        <div class="acciones">
+            <a href="admin-crear-usuario.html" class="btn">
+                Crear usuario
+            </a>
+        </div>
+    </section>
+
+    <section class="card">
+
+        <h2>Listado de usuarios</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabla-usuarios">
+                <tr>
+                    <td>1</td>
+                    <td>Martin Lara</td>
+                    <td>martin@gmail.com</td>
+                    <td>Cliente</td>
+                    <td>Activo</td>
+                    <td>
+                        <button type="button">Editar</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Administrador NutriVida</td>
+                    <td>admin@nutrivida.cl</td>
+                    <td>Administrador</td>
+                    <td>Activo</td>
+                    <td>
+                        <button type="button">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>NutriVida · Panel de administración</p>
+</footer>
+
+</body>
+</html>
