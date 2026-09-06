@@ -2,12 +2,16 @@ const formulario = document.querySelector("#form-login");
 const mensaje = document.querySelector("#mensaje-login");
 
 formulario.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
     const correo = document.querySelector("#correo").value.trim();
     const password = document.querySelector("#password").value;
 
     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    mensaje.textContent = "";
+    mensaje.style.color = "";
 
     if (correo === "") {
         mensaje.textContent = "Por favor, ingresa tu correo electrónico.";
@@ -30,4 +34,5 @@ formulario.addEventListener("submit", function (event) {
     }
 
     mensaje.textContent = "¡Inicio de sesión realizado correctamente!";
+    mensaje.style.color = "var(--acento)";
 });
