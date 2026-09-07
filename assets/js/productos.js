@@ -21,6 +21,14 @@ botones.forEach(function (boton) {
     });
 });
 
+function eliminarProducto(indice) {
+    carrito.splice(indice, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarCarrito();
+}
+
 function mostrarCarrito() {
 
     contenidoCarrito.innerHTML = "";
@@ -33,12 +41,25 @@ function mostrarCarrito() {
 
     let total = 0;
 
-    carrito.forEach(function (producto) {
+    carrito.forEach(function (producto, indice) {
 
-        const elemento = document.createElement("p");
+        const elemento = document.createElement("div");
 
-        elemento.textContent =
-            producto.nombre + " - $" + producto.precio.toLocaleString("es-CL");
+        const nombre = document.createElement("span");
+        nombre.textContent =
+            producto.nombre + " - $" +
+            producto.precio.toLocaleString("es-CL");
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.textContent = "Eliminar";
+
+        botonEliminar.addEventListener("click", function () {
+            eliminarProducto(indice);
+        });
+
+        elemento.appendChild(nombre);
+        elemento.appendChild(botonEliminar);
 
         contenidoCarrito.appendChild(elemento);
 
@@ -46,7 +67,8 @@ function mostrarCarrito() {
     });
 
     totalCarrito.innerHTML =
-        "<strong>Total:</strong> $" + total.toLocaleString("es-CL");
+        "<strong>Total:</strong> $" +
+        total.toLocaleString("es-CL");
 }
 
 mostrarCarrito();

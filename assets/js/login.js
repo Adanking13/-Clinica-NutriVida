@@ -7,45 +7,35 @@ formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const correo = document.querySelector("#correo").value.trim();
-
     const password = document.querySelector("#password").value;
 
     const formatoCorreo =
         /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
     mensaje.textContent = "";
-
     mensaje.style.color = "";
 
     if (correo === "") {
-
         mensaje.textContent =
             "Por favor, ingresa tu correo electrónico.";
-
         return;
     }
 
     if (!formatoCorreo.test(correo)) {
-
         mensaje.textContent =
             "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.";
-
         return;
     }
 
     if (password === "") {
-
         mensaje.textContent =
             "Por favor, ingresa tu contraseña.";
-
         return;
     }
 
     if (password.length < 4 || password.length > 10) {
-
         mensaje.textContent =
             "La contraseña debe tener entre 4 y 10 caracteres.";
-
         return;
     }
 
@@ -81,5 +71,4 @@ formulario.addEventListener("submit", function (event) {
 
         formulario.appendChild(accesoAdmin);
     }
-
 });
