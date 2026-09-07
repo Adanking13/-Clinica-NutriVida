@@ -1,70 +1,72 @@
 const formulario = document.getElementById("form-contacto");
-const mensajeFormulario = document.getElementById("mensaje-formulario");
 
-formulario.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (formulario) {
+    const mensaje = document.getElementById("mensaje-contacto");
 
-    const nombre = document.getElementById("nombre").value.trim();
-    const correo = document.getElementById("correo").value.trim();
-    const telefono = document.getElementById("telefono").value.trim();
-    const asunto = document.getElementById("asunto").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
+    formulario.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    mensajeFormulario.textContent = "";
-    mensajeFormulario.style.color = "";
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const asunto = document.getElementById("asunto").value.trim();
+        const texto = document.getElementById("mensaje").value.trim();
 
-    if (nombre === "") {
-        mensajeFormulario.textContent = "Ingresa tu nombre.";
-        return;
-    }
+        mensaje.textContent = "";
+        mensaje.style.color = "";
 
-    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/.test(nombre)) {
-        mensajeFormulario.textContent = "Ingresa un nombre válido.";
-        return;
-    }
+        if (nombre === "") {
+            mensaje.textContent = "Ingresa tu nombre.";
+            return;
+        }
 
-    if (correo === "") {
-        mensajeFormulario.textContent = "Ingresa tu correo electrónico.";
-        return;
-    }
+        if (nombre.length < 2) {
+            mensaje.textContent = "El nombre debe tener al menos 2 caracteres.";
+            return;
+        }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
-        mensajeFormulario.textContent = "Ingresa un correo electrónico válido.";
-        return;
-    }
+        const correoValido = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
-    if (telefono === "") {
-        mensajeFormulario.textContent = "Ingresa tu teléfono.";
-        return;
-    }
+        if (correo === "") {
+            mensaje.textContent = "Ingresa tu correo.";
+            return;
+        }
 
-    if (!/^\+?[\d\s]{8,15}$/.test(telefono)) {
-        mensajeFormulario.textContent = "Ingresa un teléfono válido.";
-        return;
-    }
+        if (!correoValido.test(correo)) {
+            mensaje.textContent = "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+            return;
+        }
 
-    if (asunto === "") {
-        mensajeFormulario.textContent = "Ingresa un asunto.";
-        return;
-    }
+        const telefonoValido = /^\+?[\d\s]{8,15}$/;
 
-    if (asunto.length < 3) {
-        mensajeFormulario.textContent = "El asunto debe tener al menos 3 caracteres.";
-        return;
-    }
+        if (telefono === "") {
+            mensaje.textContent = "Ingresa tu teléfono.";
+            return;
+        }
 
-    if (mensaje === "") {
-        mensajeFormulario.textContent = "Ingresa un mensaje.";
-        return;
-    }
+        if (!telefonoValido.test(telefono)) {
+            mensaje.textContent = "Ingresa un teléfono válido.";
+            return;
+        }
 
-    if (mensaje.length < 10) {
-        mensajeFormulario.textContent = "El mensaje debe tener al menos 10 caracteres.";
-        return;
-    }
+        if (asunto === "") {
+            mensaje.textContent = "Ingresa un asunto.";
+            return;
+        }
 
-    mensajeFormulario.textContent = "Mensaje enviado correctamente.";
-    mensajeFormulario.style.color = "var(--acento)";
+        if (texto === "") {
+            mensaje.textContent = "Ingresa tu mensaje.";
+            return;
+        }
 
-    formulario.reset();
-});
+        if (texto.length < 10) {
+            mensaje.textContent = "El mensaje debe tener al menos 10 caracteres.";
+            return;
+        }
+
+        mensaje.textContent = "Mensaje enviado correctamente.";
+        mensaje.style.color = "var(--acento)";
+
+        formulario.reset();
+    });
+}

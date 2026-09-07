@@ -47,6 +47,8 @@
 
         <h2>Listado de productos</h2>
 
+        <div id="alerta-stock"></div>
+
         <table>
             <thead>
                 <tr>
@@ -60,14 +62,17 @@
             </thead>
 
             <tbody id="tabla-productos">
+
                 <tr>
                     <td>1</td>
                     <td>Bioimpedanciometría</td>
                     <td>Evaluación</td>
                     <td>$12.000</td>
-                    <td>Disponible</td>
+                    <td>8</td>
                     <td>
-                        <button type="button">Editar</button>
+                        <button type="button" onclick="editarProducto(1)">
+                            Editar
+                        </button>
                     </td>
                 </tr>
 
@@ -76,9 +81,11 @@
                     <td>Encuesta de hábitos alimentarios</td>
                     <td>Evaluación</td>
                     <td>$10.000</td>
-                    <td>Disponible</td>
+                    <td>3</td>
                     <td>
-                        <button type="button">Editar</button>
+                        <button type="button" onclick="editarProducto(2)">
+                            Editar
+                        </button>
                     </td>
                 </tr>
 
@@ -87,11 +94,14 @@
                     <td>Análisis de exámenes</td>
                     <td>Evaluación</td>
                     <td>$14.000</td>
-                    <td>Disponible</td>
+                    <td>1</td>
                     <td>
-                        <button type="button">Editar</button>
+                        <button type="button" onclick="editarProducto(3)">
+                            Editar
+                        </button>
                     </td>
                 </tr>
+
             </tbody>
         </table>
 
@@ -102,6 +112,8 @@
 <footer>
     <p>NutriVida · Panel de administración</p>
 </footer>
+
+<script src="assets/js/admin-producto.js"></script>
 
 </body>
 </html>
