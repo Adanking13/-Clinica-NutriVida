@@ -1,119 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos | Administración NutriVida</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
-</head>
-
-<body>
-
-<header>
-    <div class="marca">
-        <div class="logo">NV</div>
-        <div>
-            <h1>NutriVida</h1>
-            <p>Administración de productos</p>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Administración de productos de NutriVida." name="description">
+        <title>Productos | Administración NutriVida</title>
+        <link href="assets/css/estilos.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbar-inner">
+                <button
+                    aria-controls="menu-lateral"
+                    aria-expanded="false"
+                    aria-label="Abrir menú principal"
+                    class="nav-toggle"
+                    id="boton-menu"
+                    type="button">
+                    <span aria-hidden="true" class="hamburger-lines">
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                    </span>
+                </button>
+                <a aria-label="NutriVida, volver al inicio" class="brand" href="admin.html">
+                    <span aria-hidden="true" class="logo">NV</span>
+                    <span class="brand-copy">
+                        <strong>NutriVida</strong>
+                        <small>Panel de administración</small>
+                    </span>
+                </a>
+                <div class="topbar-spacer">
+                </div>
+                <div aria-label="Estado del proyecto" class="topbar-status">
+                    <span aria-hidden="true" class="status-dot">
+                    </span>
+                    <span>Panel administrativo</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-backdrop" hidden="" id="menu-backdrop">
         </div>
-    </div>
-
-    <nav aria-label="Navegación de administración">
-        <a href="admin.html">Inicio</a>
-        <a href="admin-productos.html">Productos</a>
-        <a href="admin-usuarios.html">Usuarios</a>
-        <a href="index.html">Volver al sitio</a>
-    </nav>
-</header>
-
-<main>
-
-    <section class="hero">
-        <p class="eyebrow">ADMINISTRACIÓN</p>
-        <h2>Productos.</h2>
-        <p>
-            Revisa los productos disponibles y administra
-            el contenido de la tienda de NutriVida.
-        </p>
-
-        <div class="acciones">
-            <a href="admin-crear-producto.html" class="btn">
-                Crear producto
-            </a>
-        </div>
-    </section>
-
-    <section class="card">
-
-        <h2>Listado de productos</h2>
-
-        <div id="alerta-stock"></div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Producto</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-
-            <tbody id="tabla-productos">
-
-                <tr>
-                    <td>1</td>
-                    <td>Bioimpedanciometría</td>
-                    <td>Evaluación</td>
-                    <td>$12.000</td>
-                    <td>8</td>
-                    <td>
-                        <button type="button" onclick="editarProducto(1)">
-                            Editar
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Encuesta de hábitos alimentarios</td>
-                    <td>Evaluación</td>
-                    <td>$10.000</td>
-                    <td>3</td>
-                    <td>
-                        <button type="button" onclick="editarProducto(2)">
-                            Editar
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Análisis de exámenes</td>
-                    <td>Evaluación</td>
-                    <td>$14.000</td>
-                    <td>1</td>
-                    <td>
-                        <button type="button" onclick="editarProducto(3)">
-                            Editar
-                        </button>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>NutriVida · Panel de administración</p>
-</footer>
-
-<script src="assets/js/admin-producto.js"></script>
-
-</body>
+        <aside aria-hidden="true" aria-label="Menú lateral" class="side-menu" id="menu-lateral">
+            <div class="side-menu-head">
+                <div>
+                    <span class="eyebrow">NUTRIVIDA</span>
+                    <h2>Administración</h2>
+                </div>
+                <button aria-label="Cerrar menú" class="menu-close" id="cerrar-menu" type="button">×</button>
+            </div>
+            <div class="drawer-scroll">
+                <div class="drawer-section">
+                    <p class="drawer-label">Administración</p>
+                    <nav aria-label="Navegación de administración">
+                        <a href="admin.html">
+                            <span aria-hidden="true" class="menu-icon">⌘</span>
+                            <span>Panel principal</span>
+                        </a>
+                        <a href="admin-productos.html">
+                            <span aria-hidden="true" class="menu-icon">▦</span>
+                            <span>Productos</span>
+                        </a>
+                        <a href="admin-usuarios.html">
+                            <span aria-hidden="true" class="menu-icon">♙</span>
+                            <span>Usuarios</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-section">
+                    <p class="drawer-label">Sitio público</p>
+                    <nav aria-label="Navegación del sitio público">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="menu-icon">↩</span>
+                            <span>Volver al sitio</span>
+                        </a>
+                        <a href="reserva.html">
+                            <span aria-hidden="true" class="menu-icon">＋</span>
+                            <span>Agendar cita</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <div class="side-menu-foot">
+                <span>DSY1104 · EP1</span>
+                <span>Frontend</span>
+            </div>
+        </aside>
+        <main>
+            <section class="hero">
+                <div class="page-intro">
+                    <p class="eyebrow">ADMINISTRACIÓN</p>
+                    <h2>Productos.</h2>
+                    <p>Revisa los productos disponibles y administra el contenido de la tienda de NutriVida.</p>
+                    <div class="acciones">
+                        <a class="btn" href="admin-crear-producto.html">Crear producto</a>
+                    </div>
+                </div>
+            </section>
+            <section class="card">
+                <p class="eyebrow">INVENTARIO</p>
+                <h2>Listado de productos</h2>
+                <div aria-live="polite" class="notice" id="alerta-stock">Revisando stock...</div>
+                <div class="table-wrap">
+                    <table>
+                        <caption>Catálogo administrativo de servicios</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Categoría</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-productos">
+                            <tr>
+                                <td>1</td>
+                                <td>Bioimpedanciometría</td>
+                                <td>Evaluación</td>
+                                <td>$12.000</td>
+                                <td>8</td>
+                                <td>
+                                    <button onclick="editarProducto(1)" type="button">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Encuesta de hábitos alimentarios</td>
+                                <td>Evaluación</td>
+                                <td>$10.000</td>
+                                <td>3</td>
+                                <td>
+                                    <button onclick="editarProducto(2)" type="button">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Análisis de exámenes</td>
+                                <td>Evaluación</td>
+                                <td>$14.000</td>
+                                <td>1</td>
+                                <td>
+                                    <button onclick="editarProducto(3)" type="button">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div>
+                    <strong>NutriVida</strong>
+                    <p>Panel académico de administración</p>
+                </div>
+                <div class="footer-links">
+                    <a href="contacto.html">Contacto</a>
+                    <a href="reserva.html">Agendar cita</a>
+                    <a href="recursos.html">Recursos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Proyecto DSY1104 · Evaluación Parcial 1</span>
+                <span>Versión frontend · 07/09/2026</span>
+            </div>
+        </footer>
+        <script src="assets/js/admin-producto.js">
+        </script>
+        <script src="assets/js/menu.js">
+        </script>
+    </body>
 </html>

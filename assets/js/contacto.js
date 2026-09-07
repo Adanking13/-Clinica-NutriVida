@@ -1,77 +1,26 @@
-const formulario = document.getElementById("form-contacto");
-
-if (formulario) {
-
-    const mensaje = document.getElementById("mensaje-contacto");
-
-    formulario.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const nombre = document.getElementById("nombre").value.trim();
-        const correo = document.getElementById("correo").value.trim();
-        const telefono = document.getElementById("telefono").value.trim();
-        const asunto = document.getElementById("asunto").value.trim();
-        const texto = document.getElementById("mensaje").value.trim();
-
-        mensaje.textContent = "";
-        mensaje.style.color = "";
-
-        if (nombre === "") {
-            mensaje.textContent = "Ingresa tu nombre.";
-            return;
-        }
-
-        if (nombre.length < 2) {
-            mensaje.textContent = "El nombre debe tener al menos 2 caracteres.";
-            return;
-        }
-
-        const correoValido =
-            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
-
-        if (correo === "") {
-            mensaje.textContent = "Ingresa tu correo.";
-            return;
-        }
-
-        if (!correoValido.test(correo)) {
-            mensaje.textContent =
-                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
-            return;
-        }
-
-        const telefonoValido = /^\+?[\d\s]{8,15}$/;
-
-        if (telefono === "") {
-            mensaje.textContent = "Ingresa tu teléfono.";
-            return;
-        }
-
-        if (!telefonoValido.test(telefono)) {
-            mensaje.textContent = "Ingresa un teléfono válido.";
-            return;
-        }
-
-        if (asunto === "") {
-            mensaje.textContent = "Ingresa un asunto.";
-            return;
-        }
-
-        if (texto === "") {
-            mensaje.textContent = "Ingresa tu mensaje.";
-            return;
-        }
-
-        if (texto.length < 10) {
-            mensaje.textContent =
-                "El mensaje debe tener al menos 10 caracteres.";
-            return;
-        }
-
-        mensaje.textContent = "Mensaje enviado correctamente.";
-        mensaje.style.color = "var(--acento)";
-
-        formulario.reset();
-    });
+document.addEventListener('DOMContentLoaded',()=>
+{
+    const form=document.getElementById('form-contacto');
+    if (!form)return;
+    form.addEventListener('submit',e=>
+    {
+        e.preventDefault();
+        clearAllFieldErrors(form);
+        showFormMessage('mensaje-contacto','');
+        const v=Object.fromEntries(new FormData(form).entries());
+        if (!v.nombre.trim())return setFieldError('nombre','Ingresa tu nombre.');
+        if (!validName(v.nombre.trim()))return setFieldError('nombre','Ingresa un nombre válido.');
+        if (!v.correo.trim())return setFieldError('correo','Ingresa tu correo.');
+        if (!validEmail(v.correo.trim()))return setFieldError('correo','Ingresa un correo institucional o Gmail válido.');
+        if (!v.telefono.trim())return setFieldError('telefono','Ingresa tu teléfono.');
+        if (!validPhone(v.telefono.trim()))return setFieldError('telefono','Ingresa un teléfono válido.');
+        if (!v.asunto.trim())return setFieldError('asunto','Ingresa un asunto.');
+        if (v.asunto.trim().length<3)return setFieldError('asunto','El asunto debe tener al menos 3 caracteres.');
+        if (!v.mensaje.trim())return setFieldError('mensaje','Ingresa tu mensaje.');
+        if (v.mensaje.trim().length<10)return setFieldError('mensaje','El mensaje debe tener al menos 10 caracteres.');
+        showFormMessage('mensaje-contacto','Mensaje enviado correctamente.','success');
+        form.reset()
+    }
+    )
 }
+)
