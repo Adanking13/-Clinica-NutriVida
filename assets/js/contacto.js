@@ -1,9 +1,11 @@
 const formulario = document.getElementById("form-contacto");
 
 if (formulario) {
+
     const mensaje = document.getElementById("mensaje-contacto");
 
     formulario.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         const nombre = document.getElementById("nombre").value.trim();
@@ -25,7 +27,8 @@ if (formulario) {
             return;
         }
 
-        const correoValido = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+        const correoValido =
+            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
         if (correo === "") {
             mensaje.textContent = "Ingresa tu correo.";
@@ -33,7 +36,8 @@ if (formulario) {
         }
 
         if (!correoValido.test(correo)) {
-            mensaje.textContent = "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+            mensaje.textContent =
+                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
             return;
         }
 
@@ -60,7 +64,8 @@ if (formulario) {
         }
 
         if (texto.length < 10) {
-            mensaje.textContent = "El mensaje debe tener al menos 10 caracteres.";
+            mensaje.textContent =
+                "El mensaje debe tener al menos 10 caracteres.";
             return;
         }
 
