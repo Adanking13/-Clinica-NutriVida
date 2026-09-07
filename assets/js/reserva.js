@@ -1,7 +1,11 @@
 const parametros = new URLSearchParams(window.location.search);
+
 const servicioSeleccionado = parametros.get("servicio");
+
 const selectServicio = document.querySelector("#servicio");
+
 const formulario = document.querySelector("#form-reserva");
+
 const mensaje = document.querySelector("#mensaje-reserva");
 
 if (servicioSeleccionado && selectServicio) {
@@ -9,7 +13,9 @@ if (servicioSeleccionado && selectServicio) {
 }
 
 if (formulario) {
+
     formulario.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         const nombre = document.querySelector("#nombre").value.trim();
@@ -21,9 +27,14 @@ if (formulario) {
         const fecha = document.querySelector("#fecha").value;
         const hora = document.querySelector("#hora").value;
 
-        const nombreValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/;
-        const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const telefonoValido = /^\+?[\d\s]{8,15}$/;
+        const nombreValido =
+            /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/;
+
+        const correoValido =
+            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+
+        const telefonoValido =
+            /^\+?[\d\s]{8,15}$/;
 
         if (nombre === "") {
             mensaje.textContent = "Ingresa tu nombre.";
@@ -36,12 +47,14 @@ if (formulario) {
         }
 
         if (correo === "") {
-            mensaje.textContent = "Ingresa tu correo electrónico.";
+            mensaje.textContent =
+                "Ingresa tu correo electrónico.";
             return;
         }
 
         if (!correoValido.test(correo)) {
-            mensaje.textContent = "Ingresa un correo electrónico válido.";
+            mensaje.textContent =
+                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
             return;
         }
 
@@ -56,41 +69,51 @@ if (formulario) {
         }
 
         if (nutricionista === "") {
-            mensaje.textContent = "Selecciona un nutricionista.";
+            mensaje.textContent =
+                "Selecciona un nutricionista.";
             return;
         }
 
         if (servicio === "") {
-            mensaje.textContent = "Selecciona el servicio.";
+            mensaje.textContent =
+                "Selecciona el servicio.";
             return;
         }
 
         if (motivo === "") {
-            mensaje.textContent = "Ingresa el motivo de tu consulta.";
+            mensaje.textContent =
+                "Ingresa el motivo de tu consulta.";
             return;
         }
 
         if (motivo.length < 10) {
-            mensaje.textContent = "El motivo debe tener al menos 10 caracteres.";
+            mensaje.textContent =
+                "El motivo debe tener al menos 10 caracteres.";
             return;
         }
 
         if (fecha === "") {
-            mensaje.textContent = "Selecciona una fecha.";
+            mensaje.textContent =
+                "Selecciona una fecha.";
             return;
         }
 
-        const fechaSeleccionada = new Date(fecha + "T00:00:00");
+        const fechaSeleccionada =
+            new Date(fecha + "T00:00:00");
+
         const fechaActual = new Date();
+
         fechaActual.setHours(0, 0, 0, 0);
 
         if (fechaSeleccionada < fechaActual) {
-            mensaje.textContent = "La fecha no puede ser anterior al día de hoy.";
+            mensaje.textContent =
+                "La fecha no puede ser anterior al día de hoy.";
             return;
         }
 
         if (hora === "") {
-            mensaje.textContent = "Selecciona una hora.";
+            mensaje.textContent =
+                "Selecciona una hora.";
             return;
         }
 
