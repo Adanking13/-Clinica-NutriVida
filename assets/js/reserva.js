@@ -1,124 +1,38 @@
-const parametros = new URLSearchParams(window.location.search);
-
-const servicioSeleccionado = parametros.get("servicio");
-
-const selectServicio = document.querySelector("#servicio");
-
-const formulario = document.querySelector("#form-reserva");
-
-const mensaje = document.querySelector("#mensaje-reserva");
-
-if (servicioSeleccionado && selectServicio) {
-    selectServicio.value = servicioSeleccionado;
+document.addEventListener('DOMContentLoaded',()=>
+{
+    const form=document.getElementById('form-reserva');
+    if (!form)return;
+    const params=new URLSearchParams(location.search);
+    const service=document.getElementById('servicio');
+    if (params.get('servicio')&&service)service.value=params.get('servicio');
+    const date=document.getElementById('fecha');
+    if (date)date.min=new Date().toISOString().split('T')[0];
+    form.addEventListener('submit',e=>
+    {
+        e.preventDefault();
+        clearAllFieldErrors(form);
+        showFormMessage('mensaje-reserva','');
+        const values=Object.fromEntries(new FormData(form).entries());
+        if (!values.nombre.trim())return setFieldError('nombre','Ingresa tu nombre completo.');
+        if (!validName(values.nombre.trim()))return setFieldError('nombre','Usa solo letras y espacios (2 a 100 caracteres).');
+        if (!values.correo.trim())return setFieldError('correo','Ingresa tu correo electrónico.');
+        if (!validEmail(values.correo.trim()))return setFieldError('correo','Usa un correo @duoc.cl, @profesor.duoc.cl, @gmail.com o @nutrivida.cl.');
+        if (!values.telefono.trim())return setFieldError('telefono','Ingresa tu teléfono.');
+        if (!validPhone(values.telefono.trim()))return setFieldError('telefono','Ingresa un teléfono válido, por ejemplo +56 9 1234 5678.');
+        if (!values.nutricionista)return setFieldError('nutricionista','Selecciona un nutricionista.');
+        if (!values.servicio)return setFieldError('servicio','Selecciona un servicio.');
+        if (!values.fecha)return setFieldError('fecha','Selecciona una fecha.');
+        const today=new Date();
+        today.setHours(0,0,0,0);
+        const selected=new Date(values.fecha+'T00:00:00');
+        if (selected<today)return setFieldError('fecha','La fecha no puede ser anterior al día de hoy.');
+        if (!values.hora)return setFieldError('hora','Selecciona una hora.');
+        if (values.hora<'09:00'||values.hora>'18:00')return setFieldError('hora','Selecciona un horario entre 09:00 y 18:00.');
+        if (!values.motivo.trim())return setFieldError('motivo','Describe brevemente el motivo de consulta.');
+        if (values.motivo.trim().length<10)return setFieldError('motivo','El motivo debe tener al menos 10 caracteres.');
+        sessionStorage.setItem('nutrivida_reserva',JSON.stringify(values));
+        location.href='confirmacion.html'
+    }
+    )
 }
-
-if (formulario) {
-
-    formulario.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const nombre = document.querySelector("#nombre").value.trim();
-        const correo = document.querySelector("#correo").value.trim();
-        const telefono = document.querySelector("#telefono").value.trim();
-        const nutricionista = document.querySelector("#nutricionista").value;
-        const servicio = document.querySelector("#servicio").value;
-        const motivo = document.querySelector("#motivo").value.trim();
-        const fecha = document.querySelector("#fecha").value;
-        const hora = document.querySelector("#hora").value;
-
-        const nombreValido =
-            /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/;
-
-        const correoValido =
-            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
-
-        const telefonoValido =
-            /^\+?[\d\s]{8,15}$/;
-
-        if (nombre === "") {
-            mensaje.textContent = "Ingresa tu nombre.";
-            return;
-        }
-
-        if (!nombreValido.test(nombre)) {
-            mensaje.textContent = "Ingresa un nombre válido.";
-            return;
-        }
-
-        if (correo === "") {
-            mensaje.textContent =
-                "Ingresa tu correo electrónico.";
-            return;
-        }
-
-        if (!correoValido.test(correo)) {
-            mensaje.textContent =
-                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
-            return;
-        }
-
-        if (telefono === "") {
-            mensaje.textContent = "Ingresa tu teléfono.";
-            return;
-        }
-
-        if (!telefonoValido.test(telefono)) {
-            mensaje.textContent = "Ingresa un teléfono válido.";
-            return;
-        }
-
-        if (nutricionista === "") {
-            mensaje.textContent =
-                "Selecciona un nutricionista.";
-            return;
-        }
-
-        if (servicio === "") {
-            mensaje.textContent =
-                "Selecciona el servicio.";
-            return;
-        }
-
-        if (motivo === "") {
-            mensaje.textContent =
-                "Ingresa el motivo de tu consulta.";
-            return;
-        }
-
-        if (motivo.length < 10) {
-            mensaje.textContent =
-                "El motivo debe tener al menos 10 caracteres.";
-            return;
-        }
-
-        if (fecha === "") {
-            mensaje.textContent =
-                "Selecciona una fecha.";
-            return;
-        }
-
-        const fechaSeleccionada =
-            new Date(fecha + "T00:00:00");
-
-        const fechaActual = new Date();
-
-        fechaActual.setHours(0, 0, 0, 0);
-
-        if (fechaSeleccionada < fechaActual) {
-            mensaje.textContent =
-                "La fecha no puede ser anterior al día de hoy.";
-            return;
-        }
-
-        if (hora === "") {
-            mensaje.textContent =
-                "Selecciona una hora.";
-            return;
-        }
-
-        mensaje.textContent = "";
-
-        window.location.href = "confirmacion.html";
-    });
-}
+)

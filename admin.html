@@ -1,92 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración | NutriVida</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
-</head>
-
-<body>
-
-<header>
-    <div class="marca">
-        <div class="logo">NV</div>
-        <div>
-            <h1>NutriVida</h1>
-            <p>Panel de administración</p>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Panel de administración de NutriVida." name="description">
+        <title>Administración | NutriVida</title>
+        <link href="assets/css/estilos.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbar-inner">
+                <button
+                    aria-controls="menu-lateral"
+                    aria-expanded="false"
+                    aria-label="Abrir menú principal"
+                    class="nav-toggle"
+                    id="boton-menu"
+                    type="button">
+                    <span aria-hidden="true" class="hamburger-lines">
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                    </span>
+                </button>
+                <a aria-label="NutriVida, volver al inicio" class="brand" href="admin.html">
+                    <span aria-hidden="true" class="logo">NV</span>
+                    <span class="brand-copy">
+                        <strong>NutriVida</strong>
+                        <small>Panel de administración</small>
+                    </span>
+                </a>
+                <div class="topbar-spacer">
+                </div>
+                <div aria-label="Estado del proyecto" class="topbar-status">
+                    <span aria-hidden="true" class="status-dot">
+                    </span>
+                    <span>Panel administrativo</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-backdrop" hidden="" id="menu-backdrop">
         </div>
-    </div>
-
-    <nav aria-label="Navegación de administración">
-        <a href="admin.html">Inicio</a>
-        <a href="admin-productos.html">Productos</a>
-        <a href="admin-usuarios.html">Usuarios</a>
-        <a href="index.html">Volver al sitio</a>
-    </nav>
-</header>
-
-<main>
-
-    <section class="hero">
-        <p class="eyebrow">ADMINISTRACIÓN</p>
-        <h2>Panel de control.</h2>
-        <p>
-            Desde aquí puedes administrar los productos y usuarios
-            de la clínica NutriVida.
-        </p>
-    </section>
-
-    <section class="grid">
-
-        <article class="card">
-            <h2>Productos</h2>
-            <p>
-                Revisa y administra los productos disponibles
-                en la tienda de NutriVida.
-            </p>
-
-            <div class="acciones">
-                <a href="admin-productos.html" class="btn">
-                    Administrar productos
-                </a>
+        <aside aria-hidden="true" aria-label="Menú lateral" class="side-menu" id="menu-lateral">
+            <div class="side-menu-head">
+                <div>
+                    <span class="eyebrow">NUTRIVIDA</span>
+                    <h2>Administración</h2>
+                </div>
+                <button aria-label="Cerrar menú" class="menu-close" id="cerrar-menu" type="button">×</button>
             </div>
-        </article>
-
-        <article class="card">
-            <h2>Usuarios</h2>
-            <p>
-                Consulta y administra los usuarios registrados
-                en el sistema.
-            </p>
-
-            <div class="acciones">
-                <a href="admin-usuarios.html" class="btn">
-                    Administrar usuarios
-                </a>
+            <div class="drawer-scroll">
+                <div class="drawer-section">
+                    <p class="drawer-label">Administración</p>
+                    <nav aria-label="Navegación de administración">
+                        <a href="admin.html">
+                            <span aria-hidden="true" class="menu-icon">⌘</span>
+                            <span>Panel principal</span>
+                        </a>
+                        <a href="admin-productos.html">
+                            <span aria-hidden="true" class="menu-icon">▦</span>
+                            <span>Productos</span>
+                        </a>
+                        <a href="admin-usuarios.html">
+                            <span aria-hidden="true" class="menu-icon">♙</span>
+                            <span>Usuarios</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-section">
+                    <p class="drawer-label">Sitio público</p>
+                    <nav aria-label="Navegación del sitio público">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="menu-icon">↩</span>
+                            <span>Volver al sitio</span>
+                        </a>
+                        <a href="reserva.html">
+                            <span aria-hidden="true" class="menu-icon">＋</span>
+                            <span>Agendar cita</span>
+                        </a>
+                    </nav>
+                </div>
             </div>
-        </article>
-
-        <article class="card">
-            <h2>Volver al sitio</h2>
-            <p>
-                Regresa al sitio público de la Clínica NutriVida.
-            </p>
-
-            <div class="acciones">
-                <a href="index.html" class="btn btn-secundario">
-                    Ir al sitio
-                </a>
+            <div class="side-menu-foot">
+                <span>DSY1104 · EP1</span>
+                <span>Frontend</span>
             </div>
-        </article>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>NutriVida · Panel de administración</p>
-</footer>
-
-</body>
+        </aside>
+        <main>
+            <section class="hero">
+                <div class="page-intro">
+                    <p class="eyebrow">ADMINISTRACIÓN</p>
+                    <h2>Panel de control.</h2>
+                    <p>Desde aquí puedes administrar los productos y usuarios de la clínica NutriVida.</p>
+                </div>
+            </section>
+            <section class="kpi-grid">
+                <div class="kpi">
+                    <span>Servicios</span>
+                    <strong>6</strong>
+                </div>
+                <div class="kpi">
+                    <span>Productos críticos</span>
+                    <strong>2</strong>
+                </div>
+                <div class="kpi">
+                    <span>Usuarios demo</span>
+                    <strong>2</strong>
+                </div>
+                <div class="kpi">
+                    <span>Estado</span>
+                    <strong>Activo</strong>
+                </div>
+            </section>
+            <section class="grid">
+                <article class="card">
+                    <p class="eyebrow">CATÁLOGO</p>
+                    <h2>Productos</h2>
+                    <p>Revisa y administra los productos disponibles en la tienda de NutriVida.</p>
+                    <div class="acciones">
+                        <a class="btn" href="admin-productos.html">Administrar productos</a>
+                        <a class="btn btn-secundario" href="admin-crear-producto.html">Crear producto</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <p class="eyebrow">PERSONAS</p>
+                    <h2>Usuarios</h2>
+                    <p>Consulta y administra los usuarios registrados en el sistema.</p>
+                    <div class="acciones">
+                        <a class="btn" href="admin-usuarios.html">Administrar usuarios</a>
+                        <a class="btn btn-secundario" href="admin-crear-usuario.html">Crear usuario</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <p class="eyebrow">SITIO</p>
+                    <h2>Volver al sitio</h2>
+                    <p>Regresa al sitio público de la Clínica NutriVida.</p>
+                    <a class="btn btn-secundario" href="index.html">Ir al sitio</a>
+                </article>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div>
+                    <strong>NutriVida</strong>
+                    <p>Panel académico de administración</p>
+                </div>
+                <div class="footer-links">
+                    <a href="contacto.html">Contacto</a>
+                    <a href="reserva.html">Agendar cita</a>
+                    <a href="recursos.html">Recursos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Proyecto DSY1104 · Evaluación Parcial 1</span>
+                <span>Versión frontend · 07/09/2026</span>
+            </div>
+        </footer>
+        <script src="assets/js/menu.js">
+        </script>
+    </body>
 </html>

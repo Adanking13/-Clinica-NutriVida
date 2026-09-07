@@ -1,237 +1,91 @@
-const formulario = document.getElementById("form-producto");
-const tablaProductos = document.getElementById("tabla-productos");
-const alertaStock = document.getElementById("alerta-stock");
-
-if (formulario) {
-    const mensajeProducto = document.getElementById("mensaje-producto");
-
-    formulario.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const codigo = document.getElementById("codigo").value.trim();
-        const nombre = document.getElementById("nombre").value.trim();
-        const descripcion = document.getElementById("descripcion").value.trim();
-        const precio = document.getElementById("precio").value;
-        const stock = document.getElementById("stock").value;
-        const stockCritico = document.getElementById("stock-critico").value;
-        const categoria = document.getElementById("categoria").value;
-        const imagen = document.getElementById("imagen").value.trim();
-
-        mensajeProducto.textContent = "";
-        mensajeProducto.style.color = "";
-
-        if (codigo === "") {
-            mensajeProducto.textContent = "Ingresa el código del producto.";
-            return;
-        }
-
-        if (codigo.length < 3) {
-            mensajeProducto.textContent = "El código debe tener al menos 3 caracteres.";
-            return;
-        }
-
-        if (nombre === "") {
-            mensajeProducto.textContent = "Ingresa el nombre del producto.";
-            return;
-        }
-
-        if (nombre.length > 100) {
-            mensajeProducto.textContent = "El nombre no puede superar los 100 caracteres.";
-            return;
-        }
-
-        if (descripcion.length > 500) {
-            mensajeProducto.textContent = "La descripción no puede superar los 500 caracteres.";
-            return;
-        }
-
-        if (precio === "") {
-            mensajeProducto.textContent = "Ingresa el precio del producto.";
-            return;
-        }
-
-        if (Number(precio) < 0) {
-            mensajeProducto.textContent = "El precio no puede ser negativo.";
-            return;
-        }
-
-        if (stock === "") {
-            mensajeProducto.textContent = "Ingresa el stock del producto.";
-            return;
-        }
-
-        if (!Number.isInteger(Number(stock)) || Number(stock) < 0) {
-            mensajeProducto.textContent = "El stock debe ser un número entero mayor o igual a 0.";
-            return;
-        }
-
-        if (
-            stockCritico !== "" &&
-            (!Number.isInteger(Number(stockCritico)) || Number(stockCritico) < 0)
-        ) {
-            mensajeProducto.textContent = "El stock crítico debe ser un número entero mayor o igual a 0.";
-            return;
-        }
-
-        if (categoria === "") {
-            mensajeProducto.textContent = "Selecciona una categoría.";
-            return;
-        }
-
-        if (imagen !== "") {
-            try {
-                new URL(imagen);
-            } catch {
-                mensajeProducto.textContent = "Ingresa una URL de imagen válida.";
-                return;
+function setupProductForm()
+{
+    const form=document.getElementById('form-producto');
+    if (!form)return;
+    form.addEventListener('submit',e=>
+    {
+        e.preventDefault();
+        clearAllFieldErrors(form);
+        showFormMessage('mensaje-producto','');
+        const v=Object.fromEntries(new FormData(form).entries());
+        if (v.codigo.trim().length<3)return setFieldError('codigo','El código debe tener al menos 3 caracteres.');
+        if (!v.nombre.trim())return setFieldError('nombre','Ingresa el nombre del producto.');
+        if (v.descripcion.length>500)return setFieldError('descripcion','La descripción no puede superar los 500 caracteres.');
+        if (v.precio===''||Number(v.precio)<0)return setFieldError('precio','Ingresa un precio mayor o igual a 0.');
+        if (v.stock===''||!Number.isInteger(Number(v.stock))||Number(v.stock)<0)return setFieldError('stock','El stock debe ser un entero mayor o igual a 0.');
+        if (v['stock-critico']!==''&&(!Number.isInteger(Number(v['stock-critico']))||Number(v['stock-critico'])<0))return setFieldError('stock-critico','El stock crítico debe ser un entero válido.');
+        if (!v.categoria)return setFieldError('categoria','Selecciona una categoría.');
+        if (v.imagen)
+        {
+            try
+            {
+                new URL(v.imagen)
+            } catch
+            {
+                return setFieldError('imagen','Ingresa una URL de imagen válida.')
             }
         }
-
-        mensajeProducto.textContent = "Producto creado correctamente.";
-        mensajeProducto.style.color = "var(--acento)";
-
-        formulario.reset();
-    });
+        showFormMessage('mensaje-producto','Producto creado correctamente.','success');
+        form.reset()
+    }
+    )
 }
-
-function editarProducto(id) {
-    const filas = document.querySelectorAll("#tabla-productos tr");
-    const fila = filas[id - 1];
-
-    if (!fila) {
-        return;
+function editarProducto(id)
+{
+    const rows=document.querySelectorAll('#tabla-productos tr');
+    const row=rows[id-1];
+    if (!row)return;
+    const name=prompt('Nuevo nombre del producto:',row.cells[1].textContent.trim());
+    if (name===null)return;
+    if (name.trim().length<2)
+    {
+        alert('El nombre debe tener al menos 2 caracteres.');
+        return
     }
-
-    const nombreActual = fila.cells[1].textContent.trim();
-
-    const precioActual = fila.cells[3].textContent
-        .replace("$", "")
-        .replace(".", "")
-        .trim();
-
-    const stockActual = fila.cells[4].textContent
-        .split("·")[0]
-        .trim();
-
-    const nuevoNombre = prompt(
-        "Nuevo nombre del producto:",
-        nombreActual
-    );
-
-    if (nuevoNombre === null) {
-        return;
+    const price=prompt('Nuevo precio del producto:',row.cells[3].textContent.replace(/[$.]/g,''));
+    if (price===null)return;
+    if (isNaN(Number(price))||Number(price)<0)
+    {
+        alert('Ingresa un precio válido.');
+        return
     }
-
-    if (nuevoNombre.trim() === "") {
-        alert("El nombre no puede estar vacío.");
-        return;
+    const stock=prompt('Nuevo stock del producto:',row.cells[4].textContent.split('·')[0].trim());
+    if (stock===null)return;
+    if (!Number.isInteger(Number(stock))||Number(stock)<0)
+    {
+        alert('El stock debe ser un entero mayor o igual a 0.');
+        return
     }
-
-    const nuevoPrecio = prompt(
-        "Nuevo precio del producto:",
-        precioActual
-    );
-
-    if (nuevoPrecio === null) {
-        return;
-    }
-
-    if (
-        nuevoPrecio.trim() === "" ||
-        Number(nuevoPrecio) < 0 ||
-        isNaN(Number(nuevoPrecio))
-    ) {
-        alert("Ingresa un precio válido.");
-        return;
-    }
-
-    const nuevoStock = prompt(
-        "Nuevo stock del producto:",
-        stockActual
-    );
-
-    if (nuevoStock === null) {
-        return;
-    }
-
-    if (
-        nuevoStock.trim() === "" ||
-        !Number.isInteger(Number(nuevoStock)) ||
-        Number(nuevoStock) < 0
-    ) {
-        alert("El stock debe ser un número entero mayor o igual a 0.");
-        return;
-    }
-
-    fila.cells[1].textContent = nuevoNombre.trim();
-
-    fila.cells[3].textContent =
-        "$" + Number(nuevoPrecio).toLocaleString("es-CL");
-
-    fila.cells[4].textContent = nuevoStock;
-
-    if (Number(nuevoStock) <= 3) {
-        fila.cells[4].textContent =
-            nuevoStock + " · Stock crítico";
-
-        fila.cells[4].style.color = "#ff6b6b";
-        fila.cells[4].style.fontWeight = "bold";
-    } else {
-        fila.cells[4].style.color = "";
-        fila.cells[4].style.fontWeight = "";
-    }
-
-    mostrarAlertaStock();
+    row.cells[1].textContent=name.trim();
+    row.cells[3].textContent='$'+Number(price).toLocaleString('es-CL');
+    row.cells[4].textContent=Number(stock)<=3?Number(stock)+' · Stock crítico':String(stock);
+    row.cells[4].className=Number(stock)<=3?'stock-critical':'stock-ok';
+    mostrarAlertaStock()
 }
-
-function mostrarAlertaStock() {
-    if (!alertaStock || !tablaProductos) {
-        return;
-    }
-
-    const filas = tablaProductos.querySelectorAll("tr");
-    let productosCriticos = 0;
-
-    filas.forEach(function (fila) {
-        const stockCelda = fila.cells[4];
-
-        if (!stockCelda) {
-            return;
+function mostrarAlertaStock()
+{
+    const table=document.getElementById('tabla-productos'),alerta=document.getElementById('alerta-stock');
+    if (!table||!alerta)return;
+    let count=0;
+    table.querySelectorAll('tr').forEach(row=>
+    {
+        const cell=row.cells[4];
+        if (!cell)return;
+        const n=Number(cell.textContent.split('·')[0].trim());
+        if (n<=3)
+        {
+            count++;
+            cell.className='stock-critical'
         }
-
-        const stock = Number(
-            stockCelda.textContent.split("·")[0].trim()
-        );
-
-        if (stock <= 3) {
-            productosCriticos++;
-
-            stockCelda.textContent =
-                stock + " · Stock crítico";
-
-            stockCelda.style.color = "#ff6b6b";
-            stockCelda.style.fontWeight = "bold";
-        }
-    });
-
-    if (productosCriticos > 0) {
-        alertaStock.textContent =
-            "⚠ Hay " + productosCriticos +
-            " producto(s) con stock crítico.";
-
-        alertaStock.style.color = "#ff6b6b";
-        alertaStock.style.fontWeight = "bold";
-        alertaStock.style.marginBottom = "20px";
-    } else {
-        alertaStock.textContent =
-            "✓ No hay productos con stock crítico.";
-
-        alertaStock.style.color = "var(--acento)";
-        alertaStock.style.fontWeight = "bold";
-        alertaStock.style.marginBottom = "20px";
+        else cell.className='stock-ok'
     }
+    );
+    alerta.textContent=count?`Hay ${count} producto(s) con stock crítico.`:'No hay productos con stock crítico.';
+    alerta.className=count?'notice stock-critical':'notice stock-ok'
 }
-
-if (tablaProductos) {
-    mostrarAlertaStock();
+document.addEventListener('DOMContentLoaded',()=>
+{
+    setupProductForm();
+    mostrarAlertaStock()
 }
+)

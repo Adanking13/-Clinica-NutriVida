@@ -1,240 +1,310 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Registro de usuario en Clínica NutriVida">
-
-    <title>Registro | NutriVida</title>
-
-    <link rel="stylesheet"
-        href="assets/css/estilos.css">
-
-</head>
-
-<body>
-
-    <header>
-
-        <div class="marca">
-
-            <div class="logo">
-                NV
-            </div>
-
-            <div>
-                <h1>NutriVida</h1>
-                <p>Clínica de nutrición y dietética</p>
-            </div>
-
-        </div>
-        <button type="button" class="nav-toggle" id="boton-menu" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú de navegación">
-            <span aria-hidden="true">&#9776;</span>
-        </button>
-        <nav id="menu-principal" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-
-            <a href="nosotros.html">La clínica</a>
-
-            <a href="nutricionistas.html">Nutricionistas</a>
-
-            <a href="servicios.html">Servicios</a>
-
-            <a href="productos.html">Productos</a>
-
-            <a href="blogs.html">Blogs</a>
-
-            <a href="reserva.html">Agendar cita</a>
-
-            <a href="recursos.html">Recursos</a>
-
-            <a href="login.html">Iniciar sesión</a>
-
-        </nav>
-
-    </header>
-
-    <main>
-
-        <section class="hero">
-
-            <p class="eyebrow">
-                REGISTRO
-            </p>
-
-            <h2>
-                Crea tu cuenta
-            </h2>
-
-            <p>
-                Regístrate para acceder a los servicios de NutriVida.
-            </p>
-
-        </section>
-
-        <section class="card">
-
-            <form id="form-registro" novalidate>
-
-                <p id="mensaje-registro" aria-live="polite"></p>
-
-                <label for="run">
-                    RUN
-                </label>
-
-                <input
-                    type="text"
-                    id="run"
-                    name="run"
-                    maxlength="9"
-                    placeholder="Ej: 190110222"
-                    required
-                >
-
-                <label for="nombre">
-                    Nombre
-                </label>
-
-                <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    maxlength="50"
-                    placeholder="Ingresa tu nombre"
-                    required
-                >
-
-                <label for="apellidos">
-                    Apellidos
-                </label>
-
-                <input
-                    type="text"
-                    id="apellidos"
-                    name="apellidos"
-                    maxlength="100"
-                    placeholder="Ingresa tus apellidos"
-                    required
-                >
-
-                <label for="correo">
-                    Correo electrónico
-                </label>
-
-                <input
-                    type="email"
-                    id="correo"
-                    name="correo"
-                    maxlength="100"
-                    placeholder="ejemplo@gmail.com"
-                    required
-                >
-
-                <label for="fecha-nacimiento">
-                    Fecha de nacimiento
-                </label>
-
-                <input
-                    type="date"
-                    id="fecha-nacimiento"
-                    name="fecha-nacimiento"
-                >
-
-                <label for="region">
-                    Región
-                </label>
-
-                <select
-                    id="region"
-                    name="region"
-                    required
-                >
-                    <option value="">
-                        Selecciona una región
-                    </option>
-                </select>
-
-                <label for="comuna">
-                    Comuna
-                </label>
-
-                <select
-                    id="comuna"
-                    name="comuna"
-                    required
-                    disabled
-                >
-                    <option value="">
-                        Selecciona una comuna
-                    </option>
-                </select>
-
-                <label for="direccion">
-                    Dirección
-                </label>
-
-                <textarea
-                    id="direccion"
-                    name="direccion"
-                    maxlength="300"
-                    placeholder="Ingresa tu dirección"
-                    required
-                ></textarea>
-
-                <label for="password">
-                    Contraseña
-                </label>
-
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    minlength="4"
-                    maxlength="10"
-                    placeholder="Entre 4 y 10 caracteres"
-                    required
-                >
-
-                <label for="password-confirmar">
-                    Confirmar contraseña
-                </label>
-
-                <input
-                    type="password"
-                    id="password-confirmar"
-                    name="password-confirmar"
-                    minlength="4"
-                    maxlength="10"
-                    placeholder="Repite tu contraseña"
-                    required
-                >
-
-                <button type="submit">
-                    Registrarme
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Registro de usuario en Clínica NutriVida." name="description">
+        <title>Registro | NutriVida</title>
+        <link href="assets/css/estilos.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="topbar-inner">
+                <button
+                    aria-controls="menu-lateral"
+                    aria-expanded="false"
+                    aria-label="Abrir menú principal"
+                    class="nav-toggle"
+                    id="boton-menu"
+                    type="button">
+                    <span aria-hidden="true" class="hamburger-lines">
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                        <span>
+                        </span>
+                    </span>
                 </button>
-
-            </form>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>
-            NutriVida · Proyecto DSY1104
-        </p>
-
-    </footer>
-
-    <script src="assets/js/registro.js"></script>
-    <script src="assets/js/menu.js"></script>
-</body>
-
+                <a aria-label="NutriVida, volver al inicio" class="brand" href="index.html">
+                    <span aria-hidden="true" class="logo">NV</span>
+                    <span class="brand-copy">
+                        <strong>NutriVida</strong>
+                        <small>Clínica de nutrición y dietética</small>
+                    </span>
+                </a>
+                <div class="topbar-spacer">
+                </div>
+                <div aria-label="Estado del proyecto" class="topbar-status">
+                    <span aria-hidden="true" class="status-dot">
+                    </span>
+                    <span>Atención nutricional</span>
+                </div>
+                <a class="topbar-action" href="reserva.html">Agendar cita</a>
+            </div>
+        </header>
+        <div class="menu-backdrop" hidden="" id="menu-backdrop">
+        </div>
+        <aside aria-hidden="true" aria-label="Menú lateral" class="side-menu" id="menu-lateral">
+            <div class="side-menu-head">
+                <div>
+                    <span class="eyebrow">NUTRIVIDA</span>
+                    <h2>Centro de navegación</h2>
+                </div>
+                <button aria-label="Cerrar menú" class="menu-close" id="cerrar-menu" type="button">×</button>
+            </div>
+            <div class="drawer-scroll">
+                <div class="drawer-section">
+                    <p class="drawer-label">Principal</p>
+                    <nav aria-label="Navegación principal">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="menu-icon">⌂</span>
+                            <span>Inicio</span>
+                        </a>
+                        <a href="nosotros.html">
+                            <span aria-hidden="true" class="menu-icon">◈</span>
+                            <span>La clínica</span>
+                        </a>
+                        <a href="nutricionistas.html">
+                            <span aria-hidden="true" class="menu-icon">♙</span>
+                            <span>Nutricionistas</span>
+                        </a>
+                        <a href="servicios.html">
+                            <span aria-hidden="true" class="menu-icon">✦</span>
+                            <span>Servicios</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-section">
+                    <p class="drawer-label">Explorar</p>
+                    <nav aria-label="Explorar NutriVida">
+                        <a href="productos.html">
+                            <span aria-hidden="true" class="menu-icon">▦</span>
+                            <span>Productos</span>
+                        </a>
+                        <a href="blogs.html">
+                            <span aria-hidden="true" class="menu-icon">▤</span>
+                            <span>Blogs</span>
+                        </a>
+                        <a href="reserva.html">
+                            <span aria-hidden="true" class="menu-icon">＋</span>
+                            <span>Agendar cita</span>
+                        </a>
+                        <a href="recursos.html">
+                            <span aria-hidden="true" class="menu-icon">▶</span>
+                            <span>Recursos</span>
+                        </a>
+                        <a href="contacto.html">
+                            <span aria-hidden="true" class="menu-icon">✉</span>
+                            <span>Contacto</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-section">
+                    <p class="drawer-label">Cuenta</p>
+                    <nav aria-label="Cuenta">
+                        <a href="login.html">
+                            <span aria-hidden="true" class="menu-icon">↪</span>
+                            <span>Iniciar sesión</span>
+                        </a>
+                        <a href="registro.html">
+                            <span aria-hidden="true" class="menu-icon">＋</span>
+                            <span>Registrarse</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="drawer-section">
+                    <p class="drawer-label">Demostración académica</p>
+                    <nav aria-label="Acceso académico">
+                        <a href="admin.html">
+                            <span aria-hidden="true" class="menu-icon">⌘</span>
+                            <span>Panel administrativo</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <div class="side-menu-foot">
+                <span>DSY1104 · EP1</span>
+                <span>Frontend</span>
+            </div>
+        </aside>
+        <main>
+            <section class="hero">
+                <div class="page-intro">
+                    <p class="eyebrow">REGISTRO</p>
+                    <h2>Crea tu cuenta</h2>
+                    <p>Regístrate para acceder a los servicios de NutriVida.</p>
+                </div>
+            </section>
+            <section class="card form-layout">
+                <form id="form-registro" novalidate="">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="run">RUN</label>
+                            <input
+                                aria-describedby="error-run"
+                                autocomplete="off"
+                                id="run"
+                                inputmode="text"
+                                maxlength="12"
+                                name="run"
+                                placeholder="Ej: 19.011.022-K"
+                                required=""
+                                type="text">
+                        </div>
+                        <div class="form-field">
+                            <label for="nombre">Nombre</label>
+                            <input
+                                aria-describedby="error-nombre"
+                                autocomplete="given-name"
+                                id="nombre"
+                                maxlength="50"
+                                name="nombre"
+                                placeholder="Ingresa tu nombre"
+                                required=""
+                                type="text">
+                        </div>
+                        <div class="form-field">
+                            <label for="apellidos">Apellidos</label>
+                            <input
+                                aria-describedby="error-apellidos"
+                                autocomplete="family-name"
+                                id="apellidos"
+                                maxlength="100"
+                                name="apellidos"
+                                placeholder="Ingresa tus apellidos"
+                                required=""
+                                type="text">
+                        </div>
+                        <div class="form-field">
+                            <label for="correo">Correo electrónico</label>
+                            <input
+                                aria-describedby="error-correo"
+                                autocomplete="email"
+                                id="correo"
+                                list="dominios-correo"
+                                maxlength="100"
+                                name="correo"
+                                placeholder="ejemplo@gmail.com"
+                                required=""
+                                type="email">
+                            <datalist id="dominios-correo">
+                                <option value="@gmail.com">
+                                    <option value="@duoc.cl">
+                                        <option value="@profesor.duoc.cl">
+                                            <option value="@nutrivida.cl">
+                                            </option>
+                                        </option>
+                                    </option>
+                                </option>
+                            </datalist>
+                        </div>
+                        <div class="form-field">
+                            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                            <input
+                                aria-describedby="error-fecha-nacimiento"
+                                autocomplete="bday"
+                                id="fecha-nacimiento"
+                                name="fecha-nacimiento"
+                                type="date">
+                        </div>
+                        <div class="form-field">
+                            <label for="region">Región</label>
+                            <select aria-describedby="error-region" id="region" name="region" required="">
+                                <option value="">Selecciona una región</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="comuna">Comuna</label>
+                            <select
+                                aria-describedby="error-comuna"
+                                disabled=""
+                                id="comuna"
+                                name="comuna"
+                                required="">
+                                <option value="">Selecciona una comuna</option>
+                            </select>
+                        </div>
+                        <div class="form-field full">
+                            <label for="direccion">Dirección</label>
+                            <textarea
+                                aria-describedby="error-direccion"
+                                autocomplete="street-address"
+                                id="direccion"
+                                maxlength="300"
+                                minlength="5"
+                                name="direccion"
+                                placeholder="Ingresa tu dirección"
+                                required="">
+                            </textarea>
+                        </div>
+                        <div class="form-field">
+                            <label for="password">Contraseña</label>
+                            <div class="password-wrap">
+                                <input
+                                    aria-describedby="error-password"
+                                    autocomplete="new-password"
+                                    id="password"
+                                    maxlength="20"
+                                    minlength="6"
+                                    name="password"
+                                    placeholder="6 a 20 caracteres"
+                                    required=""
+                                    type="password">
+                                <button class="password-toggle" data-target="password" type="button">Mostrar</button>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="password-confirmar">Confirmar contraseña</label>
+                            <div class="password-wrap">
+                                <input
+                                    aria-describedby="error-password-confirmar"
+                                    autocomplete="new-password"
+                                    id="password-confirmar"
+                                    maxlength="20"
+                                    minlength="6"
+                                    name="password-confirmar"
+                                    placeholder="Repite tu contraseña"
+                                    required=""
+                                    type="password">
+                                <button
+                                    class="password-toggle"
+                                    data-target="password-confirmar"
+                                    type="button">Mostrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acciones form-actions">
+                        <button type="submit">Registrarme</button>
+                        <a class="btn btn-secundario" href="login.html">Ya tengo una cuenta</a>
+                    </div>
+                    <p aria-live="polite" class="form-message" id="mensaje-registro">
+                    </p>
+                </form>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div>
+                    <strong>NutriVida</strong>
+                    <p>Clínica de nutrición y dietética · Temuco, La Araucanía</p>
+                </div>
+                <div class="footer-links">
+                    <a href="contacto.html">Contacto</a>
+                    <a href="reserva.html">Agendar cita</a>
+                    <a href="recursos.html">Recursos</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Proyecto DSY1104 · Evaluación Parcial 1</span>
+                <span>Versión frontend · 07/09/2026</span>
+            </div>
+        </footer>
+        <script src="assets/js/form-utils.js">
+        </script>
+        <script src="assets/js/registro.js">
+        </script>
+        <script src="assets/js/menu.js">
+        </script>
+    </body>
 </html>
