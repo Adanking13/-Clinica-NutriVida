@@ -1,35 +1,31 @@
-# NutriVida
+# NutriVida · EP1
 
-Proyecto incremental de la asignatura Desarrollo FullStack II.
+Frontend de la Clínica NutriVida para DSY1104 Desarrollo FullStack II.
 
-## Primera versión
-
-- Estructura HTML inicial.
-- Hoja de estilos CSS externa.
-- Archivo JavaScript externo.
-- Presentación inicial de la clínica.
-- Navegación básica.
-
-## Contexto
-
-NutriVida es una clínica de nutrición y dietética
-ubicada en Temuco, Región de La Araucanía.
-
-## Integrantes
-
-Martin Reyes
-Martin Lara
-Diego Adan
+## Versión 07/09/2026
+- Navegación lateral tipo dashboard mediante menú hamburguesa accesible.
+- HTML5 semántico y páginas interconectadas.
+- CSS externo compartido, responsive y mobile-first.
+- Validaciones JavaScript con mensajes contextuales, `aria-invalid` y `aria-describedby`.
+- Carrito con `localStorage`, cantidades y persistencia de sesión de navegación.
+- Catálogo, detalle de servicios, blogs, recursos multimedia, contacto y reserva.
+- Panel administrativo académico con productos, usuarios y formularios.
+- Formulario de registro con RUN, regiones/comunas y sugerencias de correo.
 
 ## Ejecución
+Abrir `index.html` o utilizar VS Code + Live Server. En este proyecto se recomienda el puerto **5501** porque el 5500 puede estar ocupado por Oracle u otro servicio local.
 
-Abrir `index.html` en el navegador
-o utilizar Live Server.
+## Estructura
+- `assets/css/estilos.css` · estilos externos compartidos.
+- `assets/js/` · lógica de menú, formularios, carrito y administración.
+- `assets/img/` · recursos gráficos.
+- `assets/media/` · video de presentación.
 
 ## Tecnologías
+HTML5 · CSS3 · JavaScript · Git · GitHub
 
-- HTML5
-- CSS3
-- JavaScript
-- Git
-- GitHub
+## Roles demostrativos
+Administrador · Nutricionista · Paciente.
+
+## Integrantes
+Martin Reyes · Martin Lara · Diego Adan
